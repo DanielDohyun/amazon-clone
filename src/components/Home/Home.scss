@@ -5,5 +5,8 @@
   &__img {
     width: 100%;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: -1;
+    // to make overlap btw banner and products
+    margin-bottom: -150px;
   }
 }
