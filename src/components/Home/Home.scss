@@ -9,4 +9,10 @@
     // to make overlap btw banner and products
     margin-bottom: -150px;
   }
+
+  &__row {
+    display: flex;
+    z-index: 1;
+    margin: 0 5px;
+  }
 }

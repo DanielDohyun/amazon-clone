@@ -1,6 +1,8 @@
 .product {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   max-height: 400px;
   min-width: 100px;
   background-color: white;
