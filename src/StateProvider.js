@@ -10,6 +10,10 @@ export const StateContext = createContext();
 // initialState = how dataLayer looks in the beginning
 export const StateProvider = ({ reducer, initialState, children }) => (
     <StateContext.Provider value={useReducer(reducer, initialState)}>
+        {/* children is referring to the app in this case since StateProvider is wrapping the app in index.js */}
         {children}
     </StateContext.Provider>
 ); 
+
+// how we use it inside of a component
+export const useStateValue = () => useContext(StateContext);

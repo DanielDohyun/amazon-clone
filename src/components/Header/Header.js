@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom';
 import './Header.scss';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import { useStateValue } from '../../StateProvider';
 
 function Header() {
+    // state = current state of the dataLayer
+    // can further destructure state into basket 
+    const [{ basket }, dispatch] = useStateValue();
+
     return (
         <div className="header">
             {/* Amazon Icon */}
@@ -43,10 +48,11 @@ function Header() {
                     <span className='header__optionLineTwo'>Prime</span>
                     </div>
                 </Link>
+                
                 <Link className='header__link' to='/checkout'>
                     <div className="header__basket">
                         <ShoppingBasketIcon className='header__basketIcon' />
-                        <span className='header__optionLineTwo header__basketCount'>0</span>
+                        <span className='header__optionLineTwo header__basketCount'>{basket.length}</span>
                     </div>
                 </Link>
 
