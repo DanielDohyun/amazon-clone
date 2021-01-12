@@ -10,6 +10,8 @@ function Header() {
     // can further destructure state into basket 
     const [{ basket }, dispatch] = useStateValue();
 
+    // console.log(basket);
+
     return (
         <div className="header">
             {/* Amazon Icon */}
@@ -48,11 +50,11 @@ function Header() {
                     <span className='header__optionLineTwo'>Prime</span>
                     </div>
                 </Link>
-                
+
                 <Link className='header__link' to='/checkout'>
                     <div className="header__basket">
                         <ShoppingBasketIcon className='header__basketIcon' />
-                        <span className='header__optionLineTwo header__basketCount'>{basket.length}</span>
+                        <span className='header__optionLineTwo header__basketCount'>{basket?.length}</span>
                     </div>
                 </Link>
 
