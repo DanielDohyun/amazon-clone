@@ -4,6 +4,11 @@ export const initialState = {
 
 };
 
+export const getBasketTotal = (basket) => 
+    basket?.reduce((amount, item) =>
+        // starting from 0 => incrementing all the price => returns the sum
+        item.price + amount, 0);
+
 // refer to dataLayer as a state
 // manipulate dataLayer with action
 const reducer = (state, action) => {
