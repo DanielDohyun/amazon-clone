@@ -13,14 +13,31 @@ const reducer = (state, action) => {
             //Logic for adding item to basket
             //return new dataLayer
             return {
-                // return current state + change the basket 
+                // return current state + changed the basket 
                 ...state,
                 basket: [...state.basket, action.item],
             };
             break;
-        case 'REMOVE_FROM_BASKET':
-            //Logic for removing item to basket
-            break;
+        
+        case "REMOVE_FROM_BASKET":
+            let newBasket = [...state.basket];
+           
+            // find index of item that has same id as action.id
+            const index = state.basket.findIndex(
+                (basketItem) => basketItem.id === action.id
+            );
+    
+            if (index >= 0) {
+                newBasket.splice(index, 1);
+            } else {
+                console.warn(
+                    `Cant remove product (id: ${action.id}) as its not in basket!`
+                );
+            }
+            return {
+                ...state,
+                basket: newBasket
+            };
         default:
             return state;
     }

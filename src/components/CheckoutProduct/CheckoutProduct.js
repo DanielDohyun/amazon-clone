@@ -3,23 +3,16 @@ import { useStateValue } from '../../StateProvider';
 import './CheckoutProduct.scss';
 
 function CheckoutProduct({ id, title, image, price, rating }) {
-    const [{ }, dispatch] = useStateValue();
+    const [{ basket }, dispatch] = useStateValue();
 
 
     const remove = () => {
         //add item to basket
         dispatch({
             type: 'REMOVE_FROM_BASKET',
-            item: {
-                id: id,
-                title: title,
-                image: image,
-                price: price,
-                rating: rating
-            }
+            id: id,
         })
     };
-
 
     return (
         <div className='checkoutProduct'>
