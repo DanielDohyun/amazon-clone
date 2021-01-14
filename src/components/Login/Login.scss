@@ -17,5 +17,47 @@
     flex-direction: column;
     padding: 20px;
     border: 1px solid lightgray;
+
+    // sign-in
+    & > h1 {
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    // email and password
+    & > form > h5 {
+      margin-bottom: 5px;
+    }
+
+    & > form > input {
+      height: 30px;
+      margin-bottom: 10px;
+      background-color: white;
+      width: 98%;
+    }
+
+    & > p {
+      margin-top: 15px;
+      font-size: 12px;
+    }
+  }
+
+  &__signInButton {
+    background: #f0c14b;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+  }
+
+  &__registerButton {
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: darkgray;
   }
 }

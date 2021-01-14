@@ -17,10 +17,10 @@ function Login() {
                 <h1>Sign in</h1>
                 <form action="">
                     <h5>E-mail</h5>
-                    <input type="text"/>
+                    <input type="email"/>
                     <h5>Password</h5>
-                    <input type="text" />
-                    <button>Sign In</button>
+                    <input type="password" />
+                    <button type='submit' className='login__signInButton'>Sign In</button>
                 </form>
 
                 <p>
