@@ -4,13 +4,18 @@ import './Header.scss';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { useStateValue } from '../../StateProvider';
+import { auth } from '../../firebase';
 
 function Header() {
     // state = current state of the dataLayer
     // can further destructure state into basket 
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
 
-    // console.log(basket);
+    const login = () => {
+        if (user) {
+            auth.signOut();
+        }
+    }
 
     return (
         <div className="header">
@@ -30,10 +35,12 @@ function Header() {
 
             {/* nav-right */}
             <div className="header__nav">
-                <Link className='header__link' to='/login'>
-                    <div className="header__option">
-                    <span className='header__optionLineOne'>Hello Daniel</span>
-                    <span className='header__optionLineTwo'>Sign In</span>
+                {/* if you click the option when you are not signed in => will redirect to login page */}
+                {/* if you click the option when you are signed in => will run login fxn => sign out  */}
+                <Link className='header__link' to={!user && '/login'}>
+                    <div onClick={login} className="header__option">
+                        <span className='header__optionLineOne'>Hello {user?.email}</span>
+                    <span className='header__optionLineTwo'>{ user ? 'Sing Out' : 'Sign In'}</span>
                     </div>
                 </Link>
 

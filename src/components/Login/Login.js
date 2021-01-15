@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../../firebase';
 import './Login.scss';
 
 function Login() {
+    //redirect 
+    const history = useHistory();
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -14,6 +17,8 @@ function Login() {
             .signInWithEmailAndPassword(email, password)
             .then((auth) => {
                 //redirect to homepage
+                history.push('/');
+
             })
             .catch(e => alert(e.message));
         
@@ -24,6 +29,7 @@ function Login() {
         
         auth.createUserWithEmailAndPassword(email, password)
             .then(auth => {
+                history.push('/');
             
             })
             .catch(e => alert(e.message));
