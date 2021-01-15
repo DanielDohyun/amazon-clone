@@ -16,3 +16,13 @@
     margin: 0 5px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .home > img {
+    margin-bottom: -100px;
+  }
+
+  .home__row {
+    flex-wrap: wrap;
+  }
+}
